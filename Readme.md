@@ -108,6 +108,14 @@ You can also add it to upcoming builds of an existing application:
 
     $ heroku config:add BUILDPACK_URL=git://github.com/integricho/heroku-buildpack-python-ffmpeg.git
 
+You should then append ffmpeg to `PATH` and `LD_LIBRARY_PATH`.
+<code>
+$ heroku config:set PATH=/app/.heroku/python/bin:/app/.heroku/python/bin:/usr/local/bin:/usr/bin:/bin<strong>:/app/vendor/ffmpeg/bin</strong>
+</code>
+<code>
+$ heroku config:set LD_LIBRARY_PATH=/app/.heroku/vendor/lib<strong>:/app/vendor/ffmpeg/lib</strong>
+</code>
+
 The buildpack will detect your app as Python if it has the file `requirements.txt` in the root. It will detect your app as Python/Django if there is an additional `settings.py` in a project subdirectory.
 
 It will use virtualenv and pip to install your dependencies, vendoring a copy of the Python runtime into your slug.  The `bin/`, `include/` and `lib/` directories will be cached between builds to allow for faster pip install time.
