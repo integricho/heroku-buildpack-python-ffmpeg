@@ -102,6 +102,15 @@ bpwatch start pre_compile
   source $BIN_DIR/steps/hooks/pre_compile
 bpwatch stop pre_compile
 
+# Clone the static build of ffmped binaries from github
+FFMPEG_BINARY="https://github.com/integricho/ffmpeg1.2-static-with-codecs.git"
+VENDOR_FOLDER="$BUILD_DIR/.heroku/vendor/ffmpeg"
+puts-step "ffmpeg will be cloned into $VENDOR_FOLDER"
+
+mkdir -p $VENDOR_FOLDER &> /dev/null
+git clone $FFMPEG_BINARY $VENDOR_FOLDER &> /dev/null
+puts-step "Cloning pre-built ffmpeg repository..."
+
 # If no requirements given, assume `setup.py develop`.
 if [ ! -f requirements.txt ]; then
   echo "-e ." > requirements.txt
