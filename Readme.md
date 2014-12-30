@@ -1,8 +1,9 @@
 Heroku buildpack: Python
 ========================
 
-This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](http://www.pip-installer.org/).
+This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](http://www.pip-installer.org/). The only difference from the clean Python buildpack is that this one includes ffmpeg. A static build is simply cloned from [this repo](https://github.com/integricho/ffmpeg1.2-static-with-codecs), which includes a couple of useful codecs, but still trying to be light on disk space.
 
+This version of *heroku-buildpack-python-ffmpeg* is a simple update of [integricho's buildpack][https://github.com/integricho/heroku-buildpack-python-ffmpeg/edit/master/Readme.md], based on a newer revision of the base [heroku-buildpack-python][https://github.com/heroku/heroku-buildpack-python].
 
 Usage
 -----
@@ -12,7 +13,7 @@ Example usage:
     $ ls
     Procfile  requirements.txt  web.py
 
-    $ heroku create --buildpack git://github.com/heroku/heroku-buildpack-python.git
+    $ heroku create --buildpack git://github.com/prehensile/heroku-buildpack-python-ffmpeg.git
 
     $ git push heroku master
     ...
@@ -28,7 +29,7 @@ Example usage:
 
 You can also add it to upcoming builds of an existing application:
 
-    $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
+    $ heroku config:add BUILDPACK_URL=git://github.com/prehensile/heroku-buildpack-python-ffmpeg.git
 
 The buildpack will detect your app as Python if it has the file `requirements.txt` in the root.
 
