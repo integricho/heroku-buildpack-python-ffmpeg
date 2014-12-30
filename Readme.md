@@ -1,9 +1,9 @@
-Heroku buildpack: Python
-========================
+Heroku buildpack: Python-ffmpeg
+===============================
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](http://www.pip-installer.org/). The only difference from the clean Python buildpack is that this one includes ffmpeg. A static build is simply cloned from [this repo](https://github.com/integricho/ffmpeg1.2-static-with-codecs), which includes a couple of useful codecs, but still trying to be light on disk space.
 
-This version of *heroku-buildpack-python-ffmpeg* is a simple update of [integricho's buildpack][https://github.com/integricho/heroku-buildpack-python-ffmpeg/edit/master/Readme.md], based on a newer revision of the base [heroku-buildpack-python][https://github.com/heroku/heroku-buildpack-python].
+This version of **heroku-buildpack-python-ffmpeg** is a simple update of [integricho's buildpack](https://github.com/integricho/heroku-buildpack-python-ffmpeg), based on a newer revision of the base [heroku-buildpack-python](https://github.com/heroku/heroku-buildpack-python).
 
 Usage
 -----
